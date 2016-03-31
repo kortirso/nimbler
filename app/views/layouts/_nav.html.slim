@@ -1,0 +1,16 @@
+nav.navbar.navbar-inverse.navbar-fixed-top role='navigation'
+    .navbar-header
+        button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+    /.navbar-collapse.collapse
+        ul.nav.navbar-nav
+            li= link_to '', root_path
+    .auth_box
+        - if user_signed_in?
+            = link_to 'Exit', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger', id: 'destroy'
+        - else
+            = link_to 'Sign Up', '#sign_up', 'data-toggle' => 'modal', id: 'up', class: 'btn btn-sm btn-success'
+            = link_to 'Login', '#login', 'data-toggle' => 'modal', id: 'log', class: 'btn btn-sm btn-success'

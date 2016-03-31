@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=latin,cyrillic');
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+}
+
+html {
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        background: rgba(217,217,217,0.8);
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    .container {
+        margin-top: 50px;
+        padding-top: 30px;
+    }
+    .navbar {
+        .auth_box {
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            span {
+                padding: 0 10px;
+            }
+            @media screen and (max-width: 750px) {
+                right: 70px;
+            }
+            .profile {
+                a {
+                    color: #777;
+                    &:hover {
+                        color: #FFF;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .inside {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -2;
+        //background-image: image-url('background.jpg');
+        //background-size: cover;
+        //background-position: center;
+        .shadow {
+            position: fixed;
+            background: rgba(0,0,0,0.3);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

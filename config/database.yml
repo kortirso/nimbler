@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  pool: 20
+  port: 5432
+  username: <%= ENV['NIMBLER_DATABASE_USERNAME'] %>
+  password: <%= ENV['NIMBLER_DATABASE_PASSWORD'] %>
+  encoding: utf8
+
+development:
+  <<: *default
+  database: nimbler_development
+
+test:
+  <<: *default
+  database: nimbler_test
+
+production:
+  <<: *default
+  database: nimbler_production
