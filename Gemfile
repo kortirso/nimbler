@@ -16,6 +16,8 @@ gem 'simple_form'
 gem 'remotipart'
 gem 'active_model_serializers'
 gem 'carrierwave'
+gem 'nokogiri'
+gem 'mechanize'
 
 group :development, :test do
     gem 'byebug'
