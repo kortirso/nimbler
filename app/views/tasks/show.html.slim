@@ -1,0 +1,18 @@
+.row
+    .panel.panel-default
+        .panel-heading List of words in task
+        .panel-body
+            table.table.table-striped
+                thead
+                    tr
+                        th Word
+                        th Total links
+                        th Total results
+                        th HTML result
+                tbody
+                    - @words.each do |word|
+                        tr
+                            td= word.name
+                            td= word.total_links
+                            td= word.total_results
+                            td= word.html_result

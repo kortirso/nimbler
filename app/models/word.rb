@@ -17,5 +17,7 @@ class Word < ActiveRecord::Base
         file = File.new("#{Rails.root}/public/uploads/task/file/#{self.task.id}/#{self.id}.html", 'w')
         file.puts page.parser
         file.close
+
+        self.update(html_result: "#{Rails.root}/public/uploads/task/file/#{self.task.id}/#{self.id}.html")
     end
 end

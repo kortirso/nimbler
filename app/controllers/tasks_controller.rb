@@ -6,7 +6,8 @@ class TasksController < ApplicationController
     end
 
     def show
-        @task = current_user.tasks.find(params[:id]).includes(:word)
+        @task = current_user.tasks.find(params[:id])
+        @words = @task.words.order(name: :asc)
     end
 
     def create

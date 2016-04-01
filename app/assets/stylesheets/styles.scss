@@ -74,4 +74,17 @@ body {
             height: 100%;
         }
     }
+    .table > tbody > tr > td {
+        padding: 2px;
+    }
+}
+
+#auth, #new_task_block {
+    padding: 20px;
+    background: #FFF;
+    border-radius: 5px;
+}
+
+#new_task_block {
+    margin-bottom: 20px;
 }
