@@ -15,6 +15,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'remotipart'
 gem 'active_model_serializers'
+gem 'carrierwave'
 
 group :development, :test do
     gem 'byebug'
