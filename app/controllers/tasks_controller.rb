@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
     before_filter :authenticate_user!
+    before_action :find_task, only: :show
 
     def index
         @tasks = current_user.tasks.order(id: :desc)
     end
 
     def show
-        @task = current_user.tasks.find(params[:id])
         @words = @task.words.completed.order(name: :asc)
     end
 
@@ -17,6 +17,11 @@ class TasksController < ApplicationController
     end
 
     private
+    def find_task
+        @task = current_user.tasks.find_by(id: params[:id])
+        render template: 'layouts/404', status: 404 unless @task
+    end
+
     def tasks_params
         params.require(:task).permit(:file)
     end
