@@ -7,7 +7,7 @@ class TasksController < ApplicationController
 
     def show
         @task = current_user.tasks.find(params[:id])
-        @words = @task.words.order(name: :asc)
+        @words = @task.words.completed.order(name: :asc)
     end
 
     def create
