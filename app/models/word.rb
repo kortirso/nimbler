@@ -1,6 +1,3 @@
-require 'mechanize'
-require 'open-uri'
-
 class Word < ActiveRecord::Base
     belongs_to :task
 

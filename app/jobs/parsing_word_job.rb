@@ -1,9 +1,13 @@
+require 'mechanize'
+require 'open-uri'
+require 'socksify/http'
+
 class ParsingWordJob < ActiveJob::Base
     queue_as :default
 
     def perform(word)
-        agent = Mechanize.new
-        page = agent.get("http://www.google.com/search?q=#{word.name}")
+        page = nil
+        Net::HTTP.SOCKSProxy('127.0.0.1', 9050).start('google.com', 80) { |http| page = Mechanize.new.get("http://www.google.com/search?q=#{word.name}") }
         parser = page.parser
 
         # save html to file

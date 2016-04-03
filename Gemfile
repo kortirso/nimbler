@@ -20,6 +20,7 @@ gem 'mechanize'
 gem 'sidekiq'
 gem 'sidetiq'
 gem 'whenever'
+gem 'socksify'
 
 group :development, :test do
     gem 'byebug'
