@@ -7,7 +7,7 @@ class ParsingWordJob < ActiveJob::Base
 
     def perform(word)
         page = nil
-        Net::HTTP.SOCKSProxy('127.0.0.1', 9050).start('google.com', 80) { |http| page = Mechanize.new.get("http://www.google.com/search??hl=en&q=#{word.name}") }
+        Net::HTTP.SOCKSProxy('127.0.0.1', 9050).start('google.com', 80) { |http| page = Mechanize.new.get("http://www.google.com/search?hl=en&q=#{word.name}") }
         parser = page.parser
 
         # save html to file
