@@ -20,5 +20,6 @@ class ParsingWordJob < ActiveJob::Base
         total_links = page.links.count
 
         word.update(html_result: filename, total_results: total_results, total_links: total_links, complete: true)
+        sleep 1
     end
 end

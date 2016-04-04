@@ -8,6 +8,7 @@ RSpec.describe Word, type: :model do
         subject { build :word, task: task }
 
         it 'should perform_later job' do
+            skip 'remove method'
             expect(ParsingWordJob).to receive(:perform_later).with(subject)
             subject.save!
         end

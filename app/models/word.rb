@@ -6,7 +6,7 @@ class Word < ActiveRecord::Base
     scope :completed, -> { where complete: true }
     scope :active, -> { where complete: false }
 
-    after_create :parsing_word
+    #after_create :parsing_word
 
     private
     def parsing_word
