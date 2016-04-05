@@ -7,6 +7,7 @@ Rails.application.routes.draw do
             resource :profiles do
                 get :me, on: :collection
             end
+            resources :tasks, only: [:index, :show, :create]
         end
     end
     root to: 'welcome#index'
