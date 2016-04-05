@@ -89,6 +89,24 @@ describe 'Task API' do
                 it 'saves the new task in the DB' do
                     expect { post '/api/v1/tasks', file_text: 'first', format: :json, access_token: access_token.token }.to change(Task, :count).by(1)
                 end
+
+                it 'saves the new words in the DB' do
+                    expect { post '/api/v1/tasks', file_text: 'first;second', format: :json, access_token: access_token.token }.to change(Word, :count).by(2)
+                end
+            end
+
+            context 'words' do
+                before { post '/api/v1/tasks', file_text: 'first;second', format: :json, access_token: access_token.token }
+
+                it 'included in task object' do
+                    expect(response.body).to have_json_size(2).at_path("with_words/words")
+                end
+
+                %w(id task_id name complete total_links total_results html_result).each do |attr|
+                    it "contains #{attr}" do
+                        expect(response.body).to be_json_eql(Task.last.words.order(id: :asc).first.send(attr.to_sym).to_json).at_path("with_words/words/0/#{attr}")
+                    end
+                end
             end
         end
 

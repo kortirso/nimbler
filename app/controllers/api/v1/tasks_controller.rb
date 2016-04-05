@@ -1,5 +1,3 @@
-require 'csv'
-
 class Api::V1::TasksController < Api::V1::BaseController
     def index
         respond_with tasks: current_resource_owner.tasks
@@ -15,12 +13,7 @@ class Api::V1::TasksController < Api::V1::BaseController
     end
 
     def create
-        @task = current_resource_owner.tasks.new
-        file = File.new("#{Rails.root}/public/uploads/task/file/#{@task.id}/file.csv", 'w')
-        file.puts params[:file_text]
-        @task.file = file
-        file.close
-        @task.save!
+        @task = Task.create_by_api(current_resource_owner.id, params[:file_text])
         @task.create_words
         respond_with @task, serializer: TaskSerializer::WithWords
     end
