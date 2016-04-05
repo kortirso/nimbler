@@ -21,6 +21,9 @@ gem 'sidekiq'
 gem 'sidetiq'
 gem 'whenever'
 gem 'socksify'
+gem 'doorkeeper'
+gem 'oj'
+gem 'oj_mimic_json'
 
 group :development, :test do
     gem 'byebug'
