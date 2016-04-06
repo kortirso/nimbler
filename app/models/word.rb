@@ -1,5 +1,6 @@
 class Word < ActiveRecord::Base
     belongs_to :task
+    has_many :links
 
     validates :name, :task_id, presence: true
 

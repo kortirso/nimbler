@@ -9,6 +9,20 @@ class ParsingTaskJob < ActiveJob::Base
             if page.code.to_i == 200
                 parser = page.parser
 
+                #top adwords
+                i = parser.at_css('div#Z_Ltg ol').children.count
+                (1..i).each do |x|
+                    link_text = parser.at_css("div#Z_Ltg ol li:nth-of-type(#{x}) cite").text
+                    word.links.create(type: 'top', name: link_text)
+                end
+
+                #non adwords
+                j = parser.at_css('div#ires ol').children.count
+                (1..j).each do |x|
+                    object = parser.at_css("div#search div#ires ol .g:nth-of-type(#{x}) .s .kv cite")
+                    word.links.create(type: 'none', name: object.text) unless object.nil?
+                end
+
                 # save html to file
                 filename = "#{Rails.root}/public/uploads/task/file/#{word.task_id}/#{word.id}.html"
                 file = File.new(filename, 'w')

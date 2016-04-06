@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     end
 
     def show
-        @words = @task.words.completed.order(name: :asc)
+        @words = @task.words.completed.order(name: :asc).includes(:links)
     end
 
     def create

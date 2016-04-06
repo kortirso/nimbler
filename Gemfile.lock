@@ -140,6 +140,8 @@ GEM
     json_spec (1.1.4)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     libv8 (3.16.14.13)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -312,6 +314,7 @@ DEPENDENCIES
   figaro
   jquery-rails
   json_spec
+  launchy
   mechanize
   nokogiri
   oj

@@ -8,6 +8,10 @@
                         th Word
                         th Total links
                         th Total results
+                        th number urls at top adwords
+                        th list url at top adwords
+                        th number urls at search
+                        th list urls at search
                         th HTML result
                 tbody
                     - @words.each do |word|
@@ -15,4 +19,12 @@
                             td= word.name
                             td= word.total_links
                             td= word.total_results
-                            td= word.html_result
+                            td= word.links.where(type: 'top').count
+                            td
+                                - word.links.where(type: 'top').each do |link|
+                                    p= link.name
+                            td= word.links.where(type: 'none').count
+                            td
+                                - word.links.where(type: 'none').each do |link|
+                                    p= link.name
+                            td= link_to 'HTML result', word, class: 'btn btn-sm btn-primary', remote: true
