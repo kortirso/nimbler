@@ -9,6 +9,7 @@ Rails.application.routes.draw do
                 get :me, on: :collection
             end
             resources :tasks, only: [:index, :show, :create]
+            resources :words, only: :show
         end
     end
     get 'search' => 'search#find', as: 'search'
