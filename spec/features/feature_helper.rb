@@ -7,7 +7,7 @@ RSpec.configure do |config|
         config.allow_url("fonts.googleapis.com")
     end
 
-    #config.include FeatureMacros, type: :feature
+    config.include FeatureMacros, type: :feature
 
     config.use_transactional_fixtures = false
 
