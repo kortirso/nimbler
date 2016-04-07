@@ -25,6 +25,8 @@ gem 'doorkeeper'
 gem 'oj'
 gem 'oj_mimic_json'
 gem 'launchy'
+gem 'mysql2'
+gem 'thinking-sphinx'
 
 group :development, :test do
     gem 'byebug'

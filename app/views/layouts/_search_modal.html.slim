@@ -1,0 +1,11 @@
+.modal.fade.in#search_form
+    .modal-dialog
+        .modal-content
+            .modal-header
+                button.close aria-hidden='true' data-dismiss='modal' type='button' ×
+                h2.modal-title= 'Search Form'
+            = simple_form_for :search, url: search_path, method: :get, role: 'search' do |f|
+                .modal-body
+                    p= f.input :query, label: 'Query', required: false
+                    p.options= f.collection_radio_buttons :options, [[1, 'URLs with current word'], [2, 'AdWords URLs with current word']], :first, :last
+                    p= f.button :submit, 'Start search', class: 'btn btn-success'

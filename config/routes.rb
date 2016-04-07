@@ -11,6 +11,7 @@ Rails.application.routes.draw do
             resources :tasks, only: [:index, :show, :create]
         end
     end
+    get 'search' => 'search#find', as: 'search'
     root to: 'welcome#index'
     match "*path", to: "application#catch_404", via: :all
 end
