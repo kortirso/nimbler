@@ -2,6 +2,7 @@
     .panel.panel-default
         .panel-heading List of words in task
         .panel-body
+            p= "Done - #{@task.words.count}/#{@words.count}"
             table.table.table-striped
                 thead
                     tr

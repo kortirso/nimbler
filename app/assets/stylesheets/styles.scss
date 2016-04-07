@@ -29,6 +29,7 @@ html, body {
 
 body {
     position: relative;
+    color: #000;
     .container {
         margin-top: 50px;
         padding-top: 30px;
@@ -76,9 +77,9 @@ body {
         top: 0;
         left: 0;
         z-index: -2;
-        //background-image: image-url('background.jpg');
-        //background-size: cover;
-        //background-position: center;
+        background-image: image-url('background.jpg');
+        background-size: cover;
+        background-position: center;
         .shadow {
             position: fixed;
             background: rgba(0,0,0,0.3);
