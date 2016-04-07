@@ -10,6 +10,6 @@ class WordsController < ApplicationController
     private
     def find_word
         @word = Word.find(params[:id])
-        render template: 'layouts/404', status: 404 unless @word
+        render template: 'layouts/404', status: 404 if @word.nil? || @word.task.user_id != current_user.id
     end
 end
