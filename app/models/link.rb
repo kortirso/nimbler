@@ -3,6 +3,6 @@ class Link < ActiveRecord::Base
     
     belongs_to :word
 
-    validates :type, :name, presence: true
+    validates :type, :name, :word_id, presence: true
     validates :type, inclusion: { in: %w(none top right) }
 end

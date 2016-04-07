@@ -7,7 +7,7 @@ RSpec.describe Task, type: :model do
         let!(:task) { create :task, file: File.open(File.join(Rails.root, 'db/simple_test_data.csv')) }
 
         it 'should create words from file' do
-            expect { task.create_words }.to change(task.words, :count).by(3)
+            expect { task.create_words }.to change(task.words, :count)
         end
 
         it 'should activate perform_later job' do
