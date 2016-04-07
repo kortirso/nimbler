@@ -2,7 +2,7 @@
     .panel.panel-default
         .panel-heading List of words in task
         .panel-body
-            p= "Done - #{@task.words.count}/#{@words.count}"
+            p= "Done - #{@words.count}/#{@task.words.count}"
             table.table.table-striped
                 thead
                     tr
@@ -28,4 +28,4 @@
                             td
                                 - word.links.where(type: 'none').each do |link|
                                     p= link.name
-                            td= link_to 'HTML result', word, class: 'btn btn-sm btn-primary', remote: true
+                            td= link_to 'HTML result', "/uploads/task/file/#{@task.id}/#{word.id}.html", target: "_blank", class: 'btn btn-sm btn-primary'

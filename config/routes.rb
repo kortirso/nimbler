@@ -2,7 +2,6 @@ Rails.application.routes.draw do
     use_doorkeeper
     devise_for :users
     resources :tasks, only: [:index, :show, :create]
-    resources :words, only: :show
     namespace :api do
         namespace :v1 do
             resource :profiles do
