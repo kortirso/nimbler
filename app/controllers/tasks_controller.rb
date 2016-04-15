@@ -3,11 +3,12 @@ class TasksController < ApplicationController
     before_action :find_task, only: :show
 
     def index
-        @tasks = current_user.tasks.order(id: :desc)
+        respond_with(@tasks = current_user.tasks.order(id: :desc))
     end
 
     def show
         @words = @task.words.completed.order(name: :asc).includes(:links)
+        respond_with @task
     end
 
     def create

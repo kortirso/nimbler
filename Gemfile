@@ -27,6 +27,7 @@ gem 'oj_mimic_json'
 gem 'mysql2'
 gem 'thinking-sphinx'
 gem 'rails_admin'
+gem 'responders'
 
 group :development, :test do
     gem 'byebug'

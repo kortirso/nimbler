@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
     def find
-        @objects = params[:search][:query].empty? ? nil : find_object(params[:search][:query], params[:search][:options].to_i)
+        respond_with(@objects = params[:search][:query].empty? ? nil : find_object(params[:search][:query], params[:search][:options].to_i))
     end
 
     private
